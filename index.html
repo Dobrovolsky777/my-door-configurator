@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Конфигуратор дверей</title>
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Montserrat font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind config with Montserrat -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Montserrat', 'ui-sans-serif', 'system-ui'],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- AOS CSS (анимации при скролле) -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+
+    <!-- Scroll behavior -->
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-7FZPl__B.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-2PPVjEz1.css">
+  </head>
+
+  <body class="bg-gray-100 text-gray-800 font-sans">
+    <!-- Навигационное меню -->
+    <header class="bg-white shadow-md py-4">
+      <div class="container mx-auto px-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold">Interius.si</h1>
+        <nav class="space-x-4">
+          <a href="/" class="text-gray-600 hover:text-blue-600">Главная</a>
+          <a href="/configurator" class="text-gray-600 hover:text-blue-600">Конфигуратор</a>
+          <a href="#categories" class="text-gray-600 hover:text-blue-600">Категории</a>
+          <a href="#contacts" class="text-gray-600 hover:text-blue-600">Контакты</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- React-приложение -->
+    <div id="root"></div>
+
+    <!-- Основной скрипт React -->
+
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true
+      });
+    </script>
+  </body>
+</html>
