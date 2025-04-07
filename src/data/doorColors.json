@@ -1,0 +1,17 @@
+[
+    { "name": "Белый", "image": "white.jpg" },
+    { "name": "Серый", "image": "gray.jpg" },
+    { "name": "Чёрный", "image": "black.jpg" },
+    { "name": "Бежевый", "image": "beige.jpg" },
+    { "name": "Кремовый", "image": "cream.jpg" },
+    { "name": "Светлое дерево", "image": "light_wood.jpg" },
+    { "name": "Тёмное дерево", "image": "dark_wood.jpg" },
+    { "name": "Орех", "image": "walnut.jpg" },
+    { "name": "Махагон", "image": "mahogany.jpg" },
+    { "name": "Дуб", "image": "oak.jpg" },
+    { "name": "Венге", "image": "wenge.jpg" },
+    { "name": "Металлик", "image": "metallic.jpg" },
+    { "name": "Синий", "image": "blue.jpg" },
+    { "name": "Зелёный", "image": "green.jpg" }
+  ]
+  

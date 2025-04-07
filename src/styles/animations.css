@@ -1,0 +1,30 @@
+/* === Анимация появления === */
+.fade-item {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeItemIn 0.9s ease forwards;
+}
+
+@keyframes fadeItemIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Анимация закрытия (исчезновение) === */
+.fade-item-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-item-exit-active {
+  animation: fadeItemOut 0.9s ease forwards;
+}
+
+@keyframes fadeItemOut {
+  to {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}

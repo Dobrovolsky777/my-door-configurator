@@ -1,0 +1,24 @@
+[
+    {
+      "id": "AS-01",
+      "name": "N-01",
+      "image": "/images/door1.png"
+    },
+    {
+      "id": "AS-02",
+      "name": "N-02",
+      "image": "/images/door2.png"
+    },
+    {
+      "id": "AS-03",
+      "name": "N-03",
+      "image": "/images/door3.png"
+    },
+    {
+        "id": "AS-04",
+        "name": "N-04",
+        "image": "/images/door4.png"
+      }
+    
+  ]
+  
