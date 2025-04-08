@@ -3,25 +3,25 @@ import CategoryCard from '../components/CategoryCard';
 
 const categories = [
   {
-    image: 'images/category1.jpg',
+    image: '/images/category1.jpg',
     title: 'Входные двери',
     description: 'Надёжные и стильные двери для вашего дома.',
     delay: 100,
   },
   {
-    image: 'images/category2.jpg',
+    image: '/images/category2.jpg',
     title: 'Межкомнатные двери',
     description: 'Эстетика и функциональность в одном решении.',
     delay: 200,
   },
   {
-    image: 'images/category3.jpg',
+    image: '/images/category3.jpg',
     title: 'Раздвижные системы',
     description: 'Идеально для экономии пространства и дизайна.',
     delay: 300,
   },
   {
-    image: 'images/category4.jpg',
+    image: '/images/category4.jpg',
     title: 'Фурнитура',
     description: 'Ручки, петли и другие аксессуары высокого качества.',
     delay: 400,
