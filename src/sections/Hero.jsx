@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section
       className="relative bg-cover bg-center bg-no-repeat text-white text-center py-32"
-      style={{ backgroundImage: "url('images/image.png')" }}
+      style={{ backgroundImage: "url('/images/image.png')" }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-60"></div>
       <div className="relative z-10 max-w-3xl mx-auto px-4" data-aos="fade-up">
