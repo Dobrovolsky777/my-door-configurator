@@ -1,6 +1,56 @@
 [
-    { "name": "Ручка A", "image": "handle_a.png" },
-    { "name": "Ручка B", "image": "handle_b.png" },
-    { "name": "Ручка C", "image": "handle_c.png" }
-  ]
-  
+  {
+    "name": "HIRA Q7S",
+    "image": "/handle1.png",
+    "imageWithLock": "/handle11.png",
+    "lockAvailable": false
+  },
+  {
+    "name": "HIRA Q7S",
+    "image": "/handle2.png",
+    "imageWithLock": "/handle21.png",
+    "lockAvailable": true
+  },
+  {
+    "name": "HIRA Q7S",
+    "image": "/handle3.png",
+    "imageWithLock": "/handle31.png",
+    "lockAvailable": true
+  },
+  {
+    "name": "HIRA Q7S",
+    "image": "/handle4.png",
+    "imageWithLock": "/handle41.png",
+    "lockAvailable": true
+  },
+  {
+    "name": "HIRA Q7S",
+    "image": "/handle5.png",
+    "imageWithLock": "/handle51.png",
+    "lockAvailable": false
+  },
+  {
+    "name": "HIRA Q7S",
+    "image": "/handle6.png",
+    "imageWithLock": "/handle61.png",
+    "lockAvailable": false
+  },
+  {
+    "name": "HIRA Q7S",
+    "image": "/handle7.png",
+    "imageWithLock": "/handle71.png",
+    "lockAvailable": true
+  },
+  {
+    "name": "HIRA Q7S",
+    "image": "/handle8.png",
+    "imageWithLock": "/handle81.png",
+    "lockAvailable": true
+  },
+  {
+    "name": "HIRA Q7S",
+    "image": "/handle9.png",
+    "imageWithLock": "/handle91.png",
+    "lockAvailable": false
+  }
+]

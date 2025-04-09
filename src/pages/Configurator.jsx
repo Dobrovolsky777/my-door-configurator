@@ -21,11 +21,12 @@ const Configurator = () => {
   const [size, setSize] = useState({ width: 300, height: 'auto' });
   const [glassOffset, setGlassOffset] = useState({ x: 0, y: 0 });
   const [glassScale, setGlassScale] = useState(1);
-  const [hingeScale, setHingeScale] = useState(1); // <-- Добавлено
+  const [hingeScale, setHingeScale] = useState(1);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDoorData, setSelectedDoorData] = useState(doorModels[0]);
   const [showControlMenu, setShowControlMenu] = useState(false);
   const [hasTopGlass, setHasTopGlass] = useState(false);
+  const [hasLock, setHasLock] = useState(false);
   const [viewInside, setViewInside] = useState(true);
   const [selectedHandle, setSelectedHandle] = useState(handleOptions[0].image);
   const [selectedHinge, setSelectedHinge] = useState(hingeOptions[0].image);
@@ -65,6 +66,11 @@ const Configurator = () => {
       link.href = canvas.toDataURL();
       link.click();
     });
+  };
+
+  const getSelectedHandleImage = () => {
+    const handle = handleOptions.find(h => h.image === selectedHandle);
+    return hasLock ? handle?.imageWithLock || handle?.image : handle?.image;
   };
 
   return (
@@ -130,7 +136,12 @@ const Configurator = () => {
               </div>
             )}
 
-            <img src={`/images/${selectedHandle}`} alt="handle" className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10" style={{ width: '40px' }} />
+            <img
+              src={`/images/${getSelectedHandleImage()}`}
+              alt="handle"
+              className="absolute right-9 top-1/2 transform -translate-y-1/2 z-10"
+              style={{ width: '40px' }}
+            />
 
             <img
               src={`/images/${selectedHinge}`}
@@ -209,6 +220,8 @@ const Configurator = () => {
             selectedHandle={selectedHandle}
             setSelectedHandle={setSelectedHandle}
             showMenuPanel={showMenuPanel}
+            hasLock={hasLock}
+            setHasLock={setHasLock}
           />
         )}
 
