@@ -21,6 +21,7 @@ const Configurator = () => {
   const [size, setSize] = useState({ width: 300, height: 'auto' });
   const [glassOffset, setGlassOffset] = useState({ x: 0, y: 0 });
   const [glassScale, setGlassScale] = useState(1);
+  const [hingeScale, setHingeScale] = useState(1); // <-- Добавлено
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDoorData, setSelectedDoorData] = useState(doorModels[0]);
   const [showControlMenu, setShowControlMenu] = useState(false);
@@ -81,10 +82,9 @@ const Configurator = () => {
       </aside>
 
       <main
-  className="flex-grow bg-cover bg-center flex items-center justify-center relative overflow-hidden"
-  style={{ backgroundImage: "url('/images/background.jpg')" }}
->
-
+        className="flex-grow bg-cover bg-center flex items-center justify-center relative overflow-hidden"
+        style={{ backgroundImage: "url('/images/background.jpg')" }}
+      >
         <div
           id="configurator-view"
           className="w-full h-full bg-cover bg-center scale-75"
@@ -131,44 +131,50 @@ const Configurator = () => {
             )}
 
             <img src={`/images/${selectedHandle}`} alt="handle" className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10" style={{ width: '40px' }} />
-            <img src={`/images/${selectedHinge}`} alt="hinge" className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10" style={{ width: '30px' }} />
+
+            <img
+              src={`/images/${selectedHinge}`}
+              alt="hinge"
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10"
+              style={{ width: `${1000 * hingeScale}px`, transition: 'all 0.3s ease' }}
+            />
+
             <img src={selectedDoorData.image} alt="door" className="w-full h-full object-contain relative z-1" />
           </div>
         </div>
 
         <div
-  className={`absolute top-20 right-4 bg-white shadow-lg rounded-lg p-4 w-64 z-50 space-y-4 transition-all duration-300 ${
-    showControlMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
-  }`}
->
-  <h3 className="text-lg font-semibold">Управление дверью</h3>
-  <div>
-    <label className="block text-sm font-medium mb-1">Ширина двери: {size.width}px</label>
-    <input
-      type="range"
-      min="200"
-      max="400"
-      value={size.width}
-      onChange={(e) => setSize({ ...size, width: Number(e.target.value) })}
-      className="w-full"
-    />
-  </div>
-  <div>
-    <label className="block text-sm font-medium">Положение двери</label>
-    <div className="flex justify-center space-x-2 mt-1">
-      <button onClick={() => setPosition(p => ({ ...p, y: p.y - 10 }))}>⬆️</button>
-    </div>
-    <div className="flex justify-center space-x-2">
-      <button onClick={() => setPosition(p => ({ ...p, x: p.x - 10 }))}>⬅️</button>
-      <button onClick={() => setPosition({ x: 0, y: 0 })}>Центр</button>
-      <button onClick={() => setPosition(p => ({ ...p, x: p.x + 10 }))}>➡️</button>
-    </div>
-    <div className="flex justify-center space-x-2">
-      <button onClick={() => setPosition(p => ({ ...p, y: p.y + 10 }))}>⬇️</button>
-    </div>
-  </div>
-</div>
-
+          className={`absolute top-20 right-4 bg-white shadow-lg rounded-lg p-4 w-64 z-50 space-y-4 transition-all duration-300 ${
+            showControlMenu ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
+          }`}
+        >
+          <h3 className="text-lg font-semibold">Управление дверью</h3>
+          <div>
+            <label className="block text-sm font-medium mb-1">Ширина двери: {size.width}px</label>
+            <input
+              type="range"
+              min="200"
+              max="400"
+              value={size.width}
+              onChange={(e) => setSize({ ...size, width: Number(e.target.value) })}
+              className="w-full"
+            />
+          </div>
+          <div>
+            <label className="block text-sm font-medium">Положение двери</label>
+            <div className="flex justify-center space-x-2 mt-1">
+              <button onClick={() => setPosition(p => ({ ...p, y: p.y - 10 }))}>⬆️</button>
+            </div>
+            <div className="flex justify-center space-x-2">
+              <button onClick={() => setPosition(p => ({ ...p, x: p.x - 10 }))}>⬅️</button>
+              <button onClick={() => setPosition({ x: 0, y: 0 })}>Центр</button>
+              <button onClick={() => setPosition(p => ({ ...p, x: p.x + 10 }))}>➡️</button>
+            </div>
+            <div className="flex justify-center space-x-2">
+              <button onClick={() => setPosition(p => ({ ...p, y: p.y + 10 }))}>⬇️</button>
+            </div>
+          </div>
+        </div>
 
         {menu === 'model' && (
           <ModelMenu
@@ -180,13 +186,13 @@ const Configurator = () => {
           />
         )}
 
-{menu === 'glassIn' && (
-  <GlassMenu
-    hasTopGlass={hasTopGlass}
-    setHasTopGlass={setHasTopGlass}
-    showMenuPanel={showMenuPanel}
-  />
-)}
+        {menu === 'glassIn' && (
+          <GlassMenu
+            hasTopGlass={hasTopGlass}
+            setHasTopGlass={setHasTopGlass}
+            showMenuPanel={showMenuPanel}
+          />
+        )}
 
         {menu === 'color' && (
           <ColorMenu
@@ -197,25 +203,25 @@ const Configurator = () => {
           />
         )}
 
-{menu === 'handle' && (
-  <HandleMenu
-    handleOptions={handleOptions}
-    selectedHandle={selectedHandle}
-    setSelectedHandle={setSelectedHandle}
-    showMenuPanel={showMenuPanel}
-  />
-)}
+        {menu === 'handle' && (
+          <HandleMenu
+            handleOptions={handleOptions}
+            selectedHandle={selectedHandle}
+            setSelectedHandle={setSelectedHandle}
+            showMenuPanel={showMenuPanel}
+          />
+        )}
 
-
-{menu === 'hinge' && (
-  <HingeMenu
-    hingeOptions={hingeOptions}
-    selectedHinge={selectedHinge}
-    setSelectedHinge={setSelectedHinge}
-    showMenuPanel={showMenuPanel}
-  />
-)}
-
+        {menu === 'hinge' && (
+          <HingeMenu
+            hingeOptions={hingeOptions}
+            selectedHinge={selectedHinge}
+            setSelectedHinge={setSelectedHinge}
+            hingeScale={hingeScale}
+            setHingeScale={setHingeScale}
+            showMenuPanel={showMenuPanel}
+          />
+        )}
       </main>
     </div>
   );
